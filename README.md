@@ -4,7 +4,8 @@ ElixirでFizzbuzzを作ります。
 後々のためのメモとして。
 
 1. 再帰してguardでどうにかする
-2. Enumでるーぷする
+2. Enumでるーぷ / caseで分岐
+3. Stream / caseでパターンマッチ
 
 ## run
 
