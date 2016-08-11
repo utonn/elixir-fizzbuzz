@@ -1,16 +1,6 @@
+Code.require_file "./runner.exs", __DIR__
+
 defmodule Fizzbuzz1 do
-  def run([limit|_]) do
-    run limit
-  end
-
-  def run(limit) when is_binary limit do
-    run elem(Integer.parse(limit,10),0)
-  end
-
-  def run(limit) when is_integer limit do
-    fizzbuzz(limit)
-  end
-
   def fizzbuzz(limit) do
     fizzbuzz(0,limit)
   end
@@ -38,7 +28,6 @@ defmodule Fizzbuzz1 do
   def say(limit) do
     IO.puts Integer.to_string limit
   end
-
 end
 
-Fizzbuzz1.run(System.argv)
+Runner.run(Fizzbuzz1,System.argv)
