@@ -1,4 +1,12 @@
 defmodule Runner do
+
+  # def/2が複数ある(複数のclauseがある)ので、デフォルト値だけ宣言しておく
+  def run(module, limit \\ 100)
+
+  def run(module,[]) do
+    run module
+  end
+
   def run(module, [limit|_]) do
     run module,limit
   end
