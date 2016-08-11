@@ -4,17 +4,20 @@ defmodule Fizzbuzz3 do
   def fizzbuzz(limit) do
     fizz = Stream.cycle ["Fizz","",""]
     buzz = Stream.cycle ["Buzz","","","",""]
-    0..limit
-    |> Stream.zip((fizz |> Stream.zip(buzz)))
+
+    fizz
+    |> Stream.zip(buzz)
+    |> Stream.with_index
     |> Stream.map(fn(n) ->
       case n do
         # 0だけパターンから外れてしまうので…
-        {0,_} -> 0
-        {x,{"",""}} -> x
-        {_,{f,b}} -> f <> b
+        {_,0} -> 0
+        {{"",""},x} -> x
+        {{f,b},_} -> f <> b
       end
     end)
     |> Stream.each(&IO.puts &1)
+    |> Stream.take(limit + 1)
     |> Stream.run
   end
 end
